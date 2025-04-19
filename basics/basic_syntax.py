@@ -26,10 +26,6 @@
 - 自定义包
 - JSON格式转换
 """
-import time
-from operator import truediv
-from pyexpat.errors import messages
-
 
 print('hello world')
 print("hello", end = '') # 不换行输出
