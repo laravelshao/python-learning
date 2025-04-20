@@ -27,6 +27,7 @@
 - JSON格式转换
 - 类型注解(变量、方法、Union)
 """
+
 import random
 
 print('hello world')
