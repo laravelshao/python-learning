@@ -25,7 +25,9 @@
 - __name__ == '__main__' 作用：确保某些代码块仅在脚本作为主程序运行时执行，而在被导入时不执行
 - 自定义包
 - JSON格式转换
+- 类型注解(变量、方法、Union)
 """
+import random
 
 print('hello world')
 print("hello", end = '') # 不换行输出
@@ -423,7 +425,6 @@ for key in my_dict4:
     print(f"key：{key}，对应的值为：{my_dict4[key]}")
 
 
-
 # 文件读写
 # 打开文件
 # f = open("../file_read_test.txt", "r", encoding="UTF-8")
@@ -538,7 +539,6 @@ my_pkg_module1.func1()
 my_pkg_module2.func2()
 
 
-
 # JSON格式转换
 import json
 # 列表数据转JSON
@@ -557,4 +557,44 @@ json2 = '{"name": "庄颜", "age": 19}'
 load_data2 = json.loads(json2)
 print(f"load_data2类型为：{type(load_data2)}, 内容为：{load_data2}")
 
+
+# 类型注解(变量、方法、Union)
+# 变量的类型注解语法
+# 语法1：变量: 类型
+# 语法2：在注释中，# type: 类型
+# 基础数据类型注解
+var_1: int = 10
+var_2: str = "hello"
+var_3: bool = True
+# 类对象类型注解
+class Person:
+    pass
+person: Person = Person()
+# 基础容器类型注解
+my_list: list = [1, 2, 3]
+my_tuple: tuple = (1, 2, 3)
+my_dict: dict = {"name": "庄颜"}
+# 容器类型详细注解
+my_list2: list[int] = [1, 2, 3]
+my_tuple2: tuple[int, str, bool] = (1, "hello", True)
+my_dict2: dict[str, str] = {"name": "庄颜"}
+# 在注释中进行类型注解
+var_11 = random.randint(1, 10)  # type: int
+var_12 = json.loads('{"name": "庄颜"}')   # type: dict[str, str]
+def func13():
+    return 10
+var_13 = func13()   # type: int
+
+# 方法形参和返回值的类型注解
+# 语法：def 方法名(形参: 类型, ..., 形参: 类型) -> 返回值类型:
+def func(x: int, y: int) -> int:
+    return x + y
+
+# union 联合类型注解
+from typing import Union
+my_list3: list[Union[int,str]] = [1, 2, "hello", "world"]
+my_dict3: dict[str, Union[str, int]] = {"name": "庄颜", "age": 18}
+def func3(data: Union[int, str]) -> Union[int, str]:
+    pass
+func3(1)
 
