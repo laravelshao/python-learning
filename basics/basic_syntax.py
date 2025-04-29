@@ -26,6 +26,7 @@
 - 自定义包
 - JSON格式转换
 - 类型注解(变量、方法、Union)
+- 解包
 """
 
 import random
@@ -599,3 +600,26 @@ def func3(data: Union[int, str]) -> Union[int, str]:
     pass
 func3(1)
 
+
+# 解包
+# 星号解包(*)，合并列表
+list1 = [1, 2]
+list2 = [3, 4]
+merged_list = [*list1, *list2]  # [1, 2, 3, 4]
+
+# 函数参数解包
+def func_unpacking1(a, b, c):
+    print(a, b, c)
+args = [1, 2, 3]
+func(*args)  # 等价于 func(1, 2, 3)
+
+# 双星号解包(**)，解包字典的键值对
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3}
+merged_dict = {**dict1, **dict2}  # {"a": 1, "b": 2, "c": 3}
+
+# 函数关键字参数解包
+def func_unpacking2(a, b, c):
+    print(a, b, c)
+kwargs = {"a": 1, "b": 2, "c": 3}
+func(**kwargs)  # 等价于 func(a=1, b=2, c=3)
