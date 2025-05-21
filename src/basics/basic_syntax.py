@@ -427,82 +427,82 @@ for key in my_dict4:
     print(f"key：{key}，对应的值为：{my_dict4[key]}")
 
 
-# 文件读写
-# 打开文件
-# f = open("../file_read_test.txt", "r", encoding="UTF-8")
+# # 文件读写
+# # 打开文件
+# f = open("../../file_read_test.txt", "r", encoding="UTF-8")
 # print(type(f))
-# 读取指定字符，未传则读取全部内容
+# # 读取指定字符，未传则读取全部内容
 # print(f"读取10个字符是：{f.read(10)}")   # 读取10个字符
 # print(f"读取全部内容是：{f.read()}")     # 读取全部内容
-# 按行读取全部内容，返回行内容列表
+# # 按行读取全部内容，返回行内容列表
 # lines = f.readlines()
 # print(f"读取到lines的类型是：{type(lines)}")
 # print(f"读取到lines的内容是：{lines}")
-# 一次读取一行内容
+# # 一次读取一行内容
 # line = f.readline()
 # print(f"一次读取一行内容是：{line}")
 # line = f.readline()
 # print(f"一次读取一行内容是：{line}")
-
-# for循环读取文件行内容
+#
+# # for循环读取文件行内容
 # for line in f:
 #     print(f"for循环读取文件行是：{line}")
-
-# 文件关闭，如果不关闭则会一直被占用
+#
+# # 文件关闭，如果不关闭则会一直被占用
 # f.close()
-
-# with open 打开文件执行完毕后会自动关闭文件
-# with open("../file_read_test.txt", "r", encoding="UTF-8") as f:
+#
+# # with open 打开文件执行完毕后会自动关闭文件
+# with open("../../file_read_test.txt", "r", encoding="UTF-8") as f:
 #     for line in f:
 #         print(f"for循环读取文件行是：{line}")
-
-# 打开文件，操作模式为"w"是如果文件存在则会覆盖，不存在则会创建文件
-# f = open("../file_write_test.txt", "w", encoding="UTF-8")
-# 写入内容，暂时只在内存中，还没写入磁盘
+#
+# # 打开文件，操作模式为"w"是如果文件存在则会覆盖，不存在则会创建文件
+# f = open("../../file_write_test.txt", "w", encoding="UTF-8")
+# # 写入内容，暂时只在内存中，还没写入磁盘
 # f.write("hello world")
-# 将内容刷新到磁盘
+# # 将内容刷新到磁盘
 # f.flush()
-# close方法包含flush功能
+# # close方法包含flush功能
 # f.close()
-
-# 打开文件，操作模式为"a"是如果文件存在则会追加写，不存在则会创建文件
-# f = open("../file_append_test.txt", "a", encoding="UTF-8")
-# 写入内容，暂时只在内存中，还没写入磁盘
+#
+# # 打开文件，操作模式为"a"是如果文件存在则会追加写，不存在则会创建文件
+# f = open("../../file_append_test.txt", "a", encoding="UTF-8")
+# # 写入内容，暂时只在内存中，还没写入磁盘
 # f.write("hello world")
 # f.write("你好哇")
 # f.close()
 
 
-# 异常
-# 捕获指定异常
+# # 异常
+# # 捕获指定异常
 # try:
 #     1 / 0
 # except ZeroDivisionError as e:
 #     print(e)
-
-# 捕获多个异常
+#
+# # 捕获多个异常
 # try:
 #     print(name)
 #     1 / 0
 # except (NameError, ZeroDivisionError) as e:
 #     print("出现异常了")
-
-# 捕获所有异常
+#
+# # 捕获所有异常
 # try:
 #     1 / 0
 # except Exception as e:
 #     print("出现异常了")
-
-# 可选 else/finally
-try:
-    1 / 0
-    # 1 / 2
-except Exception as e:
-    print("出现异常了")
-else:
-    print("没有异常则继续执行 else")
-finally:
-    print("不管有没有异常，finally 都会执行")
+#
+# # 可选 else/finally
+# try:
+#     1 / 0
+#     # 1 / 2
+# except Exception as e:
+#     print("出现异常了")
+# else:
+#     print("没有异常则继续执行 else")
+# finally:
+#     print("不管有没有异常，finally 都会执行")
 
 
 # 模块(模块是一个 Python 文件，里面定义有函数、类、变量等)
@@ -523,7 +523,7 @@ finally:
 
 # 自定义模块
 import my_module
-my_module.func_sum(2,3)
+my_module.func_sum(2, 3)
 
 # __name__ == '__main__' 作用：确保某些代码块仅在脚本作为主程序运行时执行，而在被导入时不执行
 # __name__ 是 Python 的一个内置变量，表示当前模块的名称。
@@ -536,7 +536,6 @@ from my_package import my_pkg_module2
 
 # 在 "__init__" 文件中定义 "__all__" 可以控制 import * 能够导入的模块内容
 # __all__ = ["my_pkg_module1", "my_pkg_module2"]
-from my_package import *
 my_pkg_module1.func1()
 my_pkg_module2.func2()
 
@@ -611,7 +610,7 @@ merged_list = [*list1, *list2]  # [1, 2, 3, 4]
 def func_unpacking1(a, b, c):
     print(a, b, c)
 args = [1, 2, 3]
-func(*args)  # 等价于 func(1, 2, 3)
+func_unpacking1(*args)  # 等价于 func(1, 2, 3)
 
 # 双星号解包(**)，解包字典的键值对
 dict1 = {"a": 1, "b": 2}
@@ -622,4 +621,4 @@ merged_dict = {**dict1, **dict2}  # {"a": 1, "b": 2, "c": 3}
 def func_unpacking2(a, b, c):
     print(a, b, c)
 kwargs = {"a": 1, "b": 2, "c": 3}
-func(**kwargs)  # 等价于 func(a=1, b=2, c=3)
+func_unpacking2(**kwargs)  # 等价于 func(a=1, b=2, c=3)
